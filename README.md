@@ -2,15 +2,15 @@
 
 **Twitter Clone** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: **0** hours spent in total
+Time spent: **2** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [ ] User sees app icon in home screen and styled launch screen
-- [ ] User can sign in using OAuth login flow
-- [ ] User can Logout
+- [x] User sees app icon in home screen and styled launch screen
+- [x] User can sign in using OAuth login flow
+- [x] User can Logout
 - [ ] User can view last 20 tweets from their home timeline
 - [ ] In the home timeline, user can view tweet with the user profile picture, username, tweet text, and timestamp.
 - [ ] User can pull to refresh.
@@ -42,7 +42,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- 
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
