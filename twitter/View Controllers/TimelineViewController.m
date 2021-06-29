@@ -10,8 +10,13 @@
 #import "APIManager.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "TweetCell.h"
+#import "Tweet.h"
 
-@interface TimelineViewController ()
+@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) NSMutableArray *arrayOfTweets;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -20,17 +25,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
-            NSLog(@"😎😎😎 Successfully loaded home timeline");
-            for (NSDictionary *dictionary in tweets) {
-                NSString *text = dictionary[@"text"];
-                NSLog(@"%@", text);
-            }
+            NSMutableArray *tweetsArray = [Tweet tweetsWithArray:tweets];
+            self.arrayOfTweets = tweetsArray;
+            
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        [self.tableView reloadData];
     }];
 }
 
@@ -58,5 +66,46 @@
 }
 */
 
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
+    Tweet *tweet = self.arrayOfTweets[indexPath.row];
+    cell.tweet = tweet;    User *user = tweet.user;
+    
+    // Set labels
+    cell.authorLabel.text = user.name;
+    cell.tweetLabel.text = tweet.text;
+    cell.likesLabel.text = [NSString stringWithFormat:@"%d",
+                            tweet.favoriteCount];
+    cell.retweetsLabel.text = [NSString stringWithFormat:@"%d",
+                            tweet.retweetCount];
+    cell.repliesLabel.text = [NSString stringWithFormat:@"%d",
+                            tweet.replyCount];
+    cell.dateLabel.text = tweet.createdAtString;
+    cell.usernameLabel.text = user.screenName;
+    
+    // Set profile picture
+    NSString *URLString = user.profilePicture;
+    
+    // Get higher resolution image
+    URLString = [URLString stringByReplacingOccurrencesOfString:@"_normal" withString:@""];
+    NSURL *url = [NSURL URLWithString:URLString];
+    NSData *urlData = [NSData dataWithContentsOfURL:url];
+    cell.profilePicture.image = [UIImage imageWithData:urlData];
+    
+    // Set liked/retweeted images
+    if (tweet.favorited) {
+        cell.likesImage.image = [UIImage imageNamed:@"favor-icon-red"];
+    }
+    
+    if (tweet.retweeted) {
+        cell.retweetsImage.image = [UIImage imageNamed:@"retweet-icon-green"];
+    }
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.arrayOfTweets.count;
+}
 
 @end
