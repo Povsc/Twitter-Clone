@@ -28,18 +28,12 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    // Get timeline
-    [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
-        if (tweets) {
-            NSMutableArray *tweetsArray = [Tweet tweetsWithArray:tweets];
-            self.arrayOfTweets = tweetsArray;
-            
-        } else {
-            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
-        }
-        self.tableView.rowHeight = UITableViewAutomaticDimension;
-        [self.tableView reloadData];
-    }];
+    // Initialize a UIRefreshControl
+        UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+        [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+        [self.tableView insertSubview:refreshControl atIndex:0];
+    
+    [self beginRefresh:refreshControl];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -106,6 +100,29 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrayOfTweets.count;
+}
+
+// Makes a network request to get updated data
+// Updates the tableView with the new data
+// Hides the RefreshControl
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    
+        [refreshControl beginRefreshing];
+          // Get timeline
+        [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
+            if (tweets) {
+                NSMutableArray *tweetsArray = [Tweet tweetsWithArray:tweets];
+                self.arrayOfTweets = tweetsArray;
+                
+            } else {
+                NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
+            }
+            self.tableView.rowHeight = UITableViewAutomaticDimension;
+            [self.tableView reloadData];
+        }];
+
+        // Tell the refreshControl to stop spinning
+        [refreshControl endRefreshing];
 }
 
 @end
