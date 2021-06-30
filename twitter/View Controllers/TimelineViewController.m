@@ -12,11 +12,13 @@
 #import "LoginViewController.h"
 #import "TweetCell.h"
 #import "Tweet.h"
+#import "ComposeViewController.h"
 
-@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *arrayOfTweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *composeButtonView;
 
 @end
 
@@ -34,6 +36,13 @@
         [self.tableView insertSubview:refreshControl atIndex:0];
     
     [self beginRefresh:refreshControl];
+    
+    // Round edges of compose button
+    self.composeButtonView.layer.cornerRadius = 25;
+    self.composeButtonView.layer.masksToBounds = true;
+    
+    // Send it to the front
+    [self.view bringSubviewToFront:self.composeButtonView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,17 +58,6 @@
     
     [[APIManager shared] logout];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
@@ -123,6 +121,21 @@
 
         // Tell the refreshControl to stop spinning
         [refreshControl endRefreshing];
+}
+
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+   UINavigationController *navigationController = [segue destinationViewController];
+   ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+   composeController.delegate = self;
+}
+
+- (void)didTweet:(nonnull Tweet *)tweet {
+    [self.arrayOfTweets insertObject:tweet atIndex:0];
+    [self.tableView reloadData];
 }
 
 @end
