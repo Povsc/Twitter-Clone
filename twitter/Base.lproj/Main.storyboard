@@ -71,7 +71,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" id="bqZ-uy-emP" customClass="TweetCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TweetCell" id="bqZ-uy-emP" customClass="TweetCell">
                                         <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="110.66666412353516"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bqZ-uy-emP" id="DNw-mI-Amf">
@@ -80,12 +80,14 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#Rt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWt-CU-3uY">
                                                     <rect key="frame" x="228.66666666666666" y="83" width="24" height="18"/>
+                                                    <gestureRecognizers/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favor-icon" translatesAutoresizingMaskIntoConstraints="NO" id="dy0-B6-OWj">
                                                     <rect key="frame" x="314" y="76" width="30" height="30"/>
+                                                    <gestureRecognizers/>
                                                 </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reply-icon" translatesAutoresizingMaskIntoConstraints="NO" id="yf0-db-hJp">
                                                     <rect key="frame" x="89" y="75.333333333333329" width="30" height="30"/>
@@ -136,8 +138,21 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSP-2q-AkB">
+                                                    <rect key="frame" x="314" y="76" width="30" height="30"/>
+                                                    <connections>
+                                                        <action selector="didTapLike:" destination="bqZ-uy-emP" eventType="touchUpInside" id="XGz-bB-SY1"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJ4-vm-myu">
+                                                    <rect key="frame" x="201" y="76" width="30" height="30"/>
+                                                    <connections>
+                                                        <action selector="didTapRetweet:" destination="bqZ-uy-emP" eventType="touchUpInside" id="FXk-AH-nCZ"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="qSP-2q-AkB" firstAttribute="centerX" secondItem="dy0-B6-OWj" secondAttribute="centerX" id="0fo-q3-hQx"/>
                                                 <constraint firstItem="LBb-y9-cQD" firstAttribute="top" secondItem="DNw-mI-Amf" secondAttribute="topMargin" id="7xD-cj-PzP"/>
                                                 <constraint firstItem="uIP-ha-eEm" firstAttribute="top" secondItem="OHB-5D-TAt" secondAttribute="bottom" constant="22.5" id="8h1-Pz-bVU"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="ILc-Lf-tKw" secondAttribute="trailing" id="9fU-5R-ubc"/>
@@ -147,6 +162,7 @@
                                                 <constraint firstItem="uWt-CU-3uY" firstAttribute="top" secondItem="OHB-5D-TAt" secondAttribute="bottom" constant="22.5" id="ERF-GM-pom"/>
                                                 <constraint firstItem="yf0-db-hJp" firstAttribute="leading" secondItem="OHB-5D-TAt" secondAttribute="leading" id="FNL-GF-Vu8"/>
                                                 <constraint firstItem="ILc-Lf-tKw" firstAttribute="leading" secondItem="WtZ-Yv-DkM" secondAttribute="trailing" constant="9.5" id="JCW-Jb-e7z"/>
+                                                <constraint firstItem="qSP-2q-AkB" firstAttribute="centerY" secondItem="dy0-B6-OWj" secondAttribute="centerY" id="KkH-UW-U5z"/>
                                                 <constraint firstItem="pTw-HJ-y7t" firstAttribute="top" secondItem="OHB-5D-TAt" secondAttribute="bottom" constant="22.5" id="M0X-wl-nvn"/>
                                                 <constraint firstAttribute="trailing" secondItem="uIP-ha-eEm" secondAttribute="trailing" constant="31" id="M5C-lJ-igR"/>
                                                 <constraint firstItem="uaD-pv-EvO" firstAttribute="top" secondItem="DNw-mI-Amf" secondAttribute="topMargin" id="OBS-BQ-hjk"/>
@@ -162,6 +178,8 @@
                                                 <constraint firstItem="uWt-CU-3uY" firstAttribute="leading" secondItem="jIo-TD-LKF" secondAttribute="leading" constant="27.5" id="m8g-pA-zKl"/>
                                                 <constraint firstItem="jIo-TD-LKF" firstAttribute="top" secondItem="OHB-5D-TAt" secondAttribute="bottom" constant="15.5" id="oCj-Ff-wpa"/>
                                                 <constraint firstItem="uIP-ha-eEm" firstAttribute="leading" secondItem="dy0-B6-OWj" secondAttribute="trailing" constant="-5" id="q2e-2S-1xa"/>
+                                                <constraint firstItem="jIo-TD-LKF" firstAttribute="centerY" secondItem="cJ4-vm-myu" secondAttribute="centerY" id="qhe-hE-rqy"/>
+                                                <constraint firstItem="jIo-TD-LKF" firstAttribute="centerX" secondItem="cJ4-vm-myu" secondAttribute="centerX" id="vtA-B6-EbF"/>
                                                 <constraint firstItem="WtZ-Yv-DkM" firstAttribute="top" secondItem="DNw-mI-Amf" secondAttribute="topMargin" id="zCA-Gp-Nmx"/>
                                             </constraints>
                                         </tableViewCellContentView>

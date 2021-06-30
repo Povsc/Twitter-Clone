@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *retweetsImage;
 @property (weak, nonatomic) IBOutlet UIImageView *likesImage;
 
+- (void) refreshData;
+
 @end
 
 NS_ASSUME_NONNULL_END
