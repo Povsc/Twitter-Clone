@@ -47,8 +47,25 @@
          // Configure output format
          formatter.dateStyle = NSDateFormatterShortStyle;
          formatter.timeStyle = NSDateFormatterNoStyle;
+         // Compute how much time has passed
+         NSTimeInterval secondsSince = [date timeIntervalSinceNow];
+         int seconds = secondsSince * (-1);
+         int minutes = seconds / 60;
+         int hours = minutes / 60;
+         int days = hours / 24;
          // Convert Date to String
-         self.createdAtString = [formatter stringFromDate:date];
+         if (minutes < 1){
+             self.createdAtString = [NSString stringWithFormat:@"%ds ago", seconds];
+         }
+         else if (hours < 1){
+             self.createdAtString = [NSString stringWithFormat:@"%dm ago", minutes];
+         }
+         else if (days < 7){
+             self.createdAtString = [NSString stringWithFormat:@"%dd ago", days];
+         }
+         else {
+             self.createdAtString = [formatter stringFromDate:date];
+         }
      }
      return self;
  }
