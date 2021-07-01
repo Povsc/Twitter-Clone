@@ -35,8 +35,7 @@
 
 // Publishes tweet
 - (IBAction)sendTweet:(id)sender {
-    APIManager *manager = [APIManager new];
-    [manager postStatusWithText:self.textView.text
+    [[APIManager shared] postStatusWithText:self.textView.text
                      completion:^(Tweet *tweet, NSError *error) {
         if (error){
             NSLog(@"ERROR: Failed to post tweet");
