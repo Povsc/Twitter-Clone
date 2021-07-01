@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,7 @@
 		C91EC524268A7B2B00D31718 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC523268A7B2B00D31718 /* Tweet.m */; };
 		C91EC527268BB75400D31718 /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC526268BB75400D31718 /* TweetCell.m */; };
 		C91EC52A268BE0EC00D31718 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC529268BE0EC00D31718 /* ComposeViewController.m */; };
+		C9F2B0F7268E71F900D00228 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2B0F6268E71F900D00228 /* DetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,8 @@
 		C91EC526268BB75400D31718 /* TweetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TweetCell.m; sourceTree = "<group>"; };
 		C91EC528268BE0EC00D31718 /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
 		C91EC529268BE0EC00D31718 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		C9F2B0F5268E71F900D00228 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		C9F2B0F6268E71F900D00228 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +155,8 @@
 				6AD2790820BCC04D0085BC29 /* TimelineViewController.m */,
 				C91EC528268BE0EC00D31718 /* ComposeViewController.h */,
 				C91EC529268BE0EC00D31718 /* ComposeViewController.m */,
+				C9F2B0F5268E71F900D00228 /* DetailsViewController.h */,
+				C9F2B0F6268E71F900D00228 /* DetailsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 			files = (
 				C91EC527268BB75400D31718 /* TweetCell.m in Sources */,
 				6AD278F320BCA6020085BC29 /* BDBOAuth1SessionManager+SFAuthenticationSession.m in Sources */,
+				C9F2B0F7268E71F900D00228 /* DetailsViewController.m in Sources */,
 				C91EC521268A771600D31718 /* User.m in Sources */,
 				C91EC52A268BE0EC00D31718 /* ComposeViewController.m in Sources */,
 				6AD278E820BC4B970085BC29 /* main.m in Sources */,
