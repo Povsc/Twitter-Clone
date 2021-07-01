@@ -119,10 +119,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet-icon" translatesAutoresizingMaskIntoConstraints="NO" id="jIo-TD-LKF">
-                                                    <rect key="frame" x="165" y="81" width="30" height="30"/>
+                                                    <rect key="frame" x="165.33333333333334" y="81" width="30" height="30"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJ4-vm-myu">
-                                                    <rect key="frame" x="89" y="81" width="182" height="30"/>
+                                                    <rect key="frame" x="165.33333333333334" y="81" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="48F-Bw-TvN"/>
+                                                        <constraint firstAttribute="height" constant="30" id="Ow0-ZX-sM2"/>
+                                                    </constraints>
                                                     <connections>
                                                         <action selector="didTapRetweet:" destination="bqZ-uy-emP" eventType="touchUpInside" id="FXk-AH-nCZ"/>
                                                     </connections>
@@ -138,7 +142,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSP-2q-AkB">
-                                                    <rect key="frame" x="248.66666666666666" y="81" width="30.666666666666657" height="30"/>
+                                                    <rect key="frame" x="249" y="81" width="30" height="30"/>
                                                     <connections>
                                                         <action selector="didTapLike:" destination="bqZ-uy-emP" eventType="touchUpInside" id="XGz-bB-SY1"/>
                                                     </connections>
@@ -146,7 +150,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="qSP-2q-AkB" firstAttribute="centerX" secondItem="dy0-B6-OWj" secondAttribute="centerX" id="0fo-q3-hQx"/>
-                                                <constraint firstItem="cJ4-vm-myu" firstAttribute="leading" secondItem="OHB-5D-TAt" secondAttribute="leading" id="2yt-rf-kUf"/>
+                                                <constraint firstItem="cJ4-vm-myu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OHB-5D-TAt" secondAttribute="leading" id="2yt-rf-kUf"/>
                                                 <constraint firstItem="LBb-y9-cQD" firstAttribute="top" secondItem="DNw-mI-Amf" secondAttribute="topMargin" id="7xD-cj-PzP"/>
                                                 <constraint firstItem="uIP-ha-eEm" firstAttribute="top" secondItem="OHB-5D-TAt" secondAttribute="bottom" constant="27.666666666666671" id="8h1-Pz-bVU"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="ILc-Lf-tKw" secondAttribute="trailing" id="9fU-5R-ubc"/>
@@ -158,7 +162,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="uIP-ha-eEm" secondAttribute="trailing" constant="96" id="M5C-lJ-igR"/>
                                                 <constraint firstItem="uaD-pv-EvO" firstAttribute="top" secondItem="DNw-mI-Amf" secondAttribute="topMargin" id="OBS-BQ-hjk"/>
                                                 <constraint firstItem="WtZ-Yv-DkM" firstAttribute="leading" secondItem="LBb-y9-cQD" secondAttribute="trailing" constant="9.5" id="RWc-nr-EMI"/>
-                                                <constraint firstItem="jIo-TD-LKF" firstAttribute="centerX" secondItem="DNw-mI-Amf" secondAttribute="centerX" constant="-15" id="cDn-O8-IQD"/>
                                                 <constraint firstItem="uaD-pv-EvO" firstAttribute="leading" secondItem="DNw-mI-Amf" secondAttribute="leadingMargin" id="ee7-Zf-Anz"/>
                                                 <constraint firstItem="ILc-Lf-tKw" firstAttribute="top" secondItem="DNw-mI-Amf" secondAttribute="topMargin" id="eh8-so-emo"/>
                                                 <constraint firstItem="dy0-B6-OWj" firstAttribute="top" secondItem="OHB-5D-TAt" secondAttribute="bottom" constant="20.666666666666671" id="hI8-gj-i1P"/>

@@ -83,20 +83,42 @@
     User *user = self.tweet.user;
     self.authorLabel.text = user.name;
     self.tweetLabel.text = self.tweet.text;
-    self.likesLabel.text = [NSString stringWithFormat:@"%d",
-                            self.tweet.favoriteCount];
-    self.retweetsLabel.text = [NSString stringWithFormat:@"%d",
-                               self.tweet.retweetCount];
-    self.repliesLabel.text = [NSString stringWithFormat:@"%d",
-                              self.tweet.replyCount];
+    
+    // Set number of likes
+    if (self.tweet.favoriteCount < 1000){
+        self.likesLabel.text = [NSString stringWithFormat:@"%d",
+                                self.tweet.favoriteCount];
+    }
+    else if (self.tweet.favoriteCount < 1000000){
+        self.likesLabel.text = [NSString stringWithFormat:@"%.1fk",
+                                self.tweet.favoriteCount / 1000.0];
+    }
+    else {
+        self.likesLabel.text = [NSString stringWithFormat:@"%.1fM",
+                                self.tweet.favoriteCount / 1000000.0];
+    }
+    
+    // Set the number of retweets
+    if (self.tweet.retweetCount < 1000){
+        self.retweetsLabel.text = [NSString stringWithFormat:@"%d",
+                                self.tweet.retweetCount];
+    }
+    else if (self.tweet.retweetCount < 1000000){
+        self.retweetsLabel.text = [NSString stringWithFormat:@"%.1fk",
+                                self.tweet.retweetCount / 1000.0];
+    }
+    else {
+        self.retweetsLabel.text = [NSString stringWithFormat:@"%.1fM",
+                                self.tweet.retweetCount / 1000000.0];
+    }
+    
+    //Se date and username
     self.dateLabel.text = self.tweet.createdAtString;
     self.usernameLabel.text = user.screenName;
     
     // Make sure labels are in the front
     [self.contentView bringSubviewToFront:self.retweetsLabel];
-    [self.contentView bringSubviewToFront:self.likesLabel];
-    [self.contentView bringSubviewToFront:self.repliesLabel];
-    
+    [self.contentView bringSubviewToFront:self.likesLabel];    
     
     // Set profile picture
     NSString *URLString = user.profilePicture;
