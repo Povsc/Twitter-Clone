@@ -2,7 +2,7 @@
 
 **Twitter Clone** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: **13** hours spent in total
+Time spent: **15** hours spent in total
 
 ## User Stories
 
@@ -44,22 +44,20 @@ The following **additional** features are implemented:
 
 - [x] Number of likes and retweets does not display fully if > 1000 (e.g. 2.5k or 1.2M)
 
-Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
-
-1.
-2.
-
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-(Will be uploaded later)
+![Twitter 1](https://user-images.githubusercontent.com/73599216/124203412-aad03780-daaa-11eb-8778-1be7f25bd111.gif)
+![Twitter 2](https://user-images.githubusercontent.com/73599216/124203415-adcb2800-daaa-11eb-80c5-3b6cea2de960.gif)
+![Twitter 3](https://user-images.githubusercontent.com/73599216/124203425-b0c61880-daaa-11eb-9376-c2c0b021d1f5.gif)
+
 
 GIF created with [Kap](https://getkap.co/).
 
 ## Notes
 
-No major challenges encountered yet.
+Encountered an issue with the authentication for certain GET requests. I had to discard the implementation I had made for 'infinitely scrolling' as a result.
 
 ## Credits
 
