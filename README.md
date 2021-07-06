@@ -51,6 +51,7 @@ Here's a walkthrough of implemented user stories:
 ![Twitter 1](https://user-images.githubusercontent.com/73599216/124203412-aad03780-daaa-11eb-8778-1be7f25bd111.gif)
 ![Twitter 2](https://user-images.githubusercontent.com/73599216/124203415-adcb2800-daaa-11eb-80c5-3b6cea2de960.gif)
 ![Twitter 3](https://user-images.githubusercontent.com/73599216/124203425-b0c61880-daaa-11eb-9376-c2c0b021d1f5.gif)
+![Twitter 4](https://user-images.githubusercontent.com/73599216/124651132-90aaa680-de68-11eb-88c3-87aa760c2d5a.gif)
 
 
 GIF created with [Kap](https://getkap.co/).
